@@ -33,7 +33,7 @@ class TSN:
         self.page_down()
         time.sleep(10)
 
-    def find_game(self, team_1, team_2):
+    def find_game(self, team_1, team_2) -> str:
         game_ul_container = self.chrome_driver.find_element(By.CSS_SELECTOR, '.playlist')
         games = game_ul_container.find_elements(By.CSS_SELECTOR, 'li')
         found = False
@@ -47,13 +47,15 @@ class TSN:
                 play_game.click()
                 # keep scores hidden
                 self.page_down()
-                ## wait out ads
+                # wait out ads
                 time.sleep(60)
-                ## go full screen and pause
+                # go full screen and pause
                 action_chain = ActionChains(self.chrome_driver).double_click(play_game).perform()
                 break
-        if not found:
-            print('TSN sucks, they do not have this game yet, file a lawsuit.')
+        if found:
+            return 'TSN has the game, enjoy!'
+        else:
+            return 'TSN sucks, they do not have this game yet, file a lawsuit.'
 
     def page_down(self):
         body = self.chrome_driver.find_element(By.XPATH, '/html/body')
@@ -72,9 +74,31 @@ class TsnUi(QWidget):
         pword = self.password_tf.text()
         team_1 = self.team_1.toPlainText()
         team_2 = self.team_2.toPlainText()
+        self.tsn_thread = TSNThread(user, pword, team_1, team_2)
+        self.tsn_thread.progress_signal.connect(self.update_ui)
+        self.tsn_thread.start()
+
+    def update_ui(self, msg):
+        self.status_text.setText(msg)
+
+
+class TSNThread(QThread):
+    progress_signal = pyqtSignal(str)
+
+    def __init__(self, user, pword, team_1, team_2):
+        super().__init__()
+        self.user = user
+        self.pword = pword
+        self.team_1 = team_1
+        self.team_2 = team_2
+
+    def run(self) -> None:
+        self.progress_signal.emit('Launching browser...')
         tsn = TSN()
-        tsn.login(user, pword)
-        tsn.find_game(team_1, team_2)
+        tsn.login(self.user, self.pword)
+        self.progress_signal.emit('Successfully logged in, now searching for match!')
+        game_found = tsn.find_game(self.team_1, self.team_2)
+        self.progress_signal.emit(game_found)
 
 
 app = QApplication([])

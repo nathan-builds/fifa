@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>482</width>
-    <height>366</height>
+    <width>632</width>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -119,6 +119,19 @@
    </property>
    <property name="text">
     <string>Please Have It TSN</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="status_text">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>370</y>
+     <width>551</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
