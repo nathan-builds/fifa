@@ -13,126 +13,106 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTextEdit" name="team_1">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>230</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>110</y>
-     <width>55</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Email:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>64</x>
-     <y>150</y>
-     <width>61</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Password:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>240</y>
-     <width>55</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>VS</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="team_2">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>230</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>220</x>
      <y>60</y>
-     <width>131</width>
-     <height>16</height>
+     <width>171</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>TSN Login Details</string>
    </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="password_tf">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>150</y>
-     <width>201</width>
-     <height>22</height>
+     <x>30</x>
+     <y>230</y>
+     <width>544</width>
+     <height>91</height>
     </rect>
    </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
-   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QTextEdit" name="team_1"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>VS</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QTextEdit" name="team_2"/>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <widget class="QPushButton" name="execute_button">
+      <property name="text">
+       <string>Please Have It TSN</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <widget class="QLabel" name="status_text">
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QLineEdit" name="email_tf">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>100</x>
      <y>110</y>
-     <width>201</width>
-     <height>22</height>
+     <width>411</width>
+     <height>57</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QPushButton" name="execute_button">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>300</y>
-     <width>161</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Please Have It TSN</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="status_text">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>370</y>
-     <width>551</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Email:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="email_tf"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Password:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="password_tf">
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

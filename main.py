@@ -44,13 +44,14 @@ class TSN:
                 found = True
                 game.find_element(By.CSS_SELECTOR, '.media-overlay').click()
                 play_game = self.chrome_driver.find_element(By.CSS_SELECTOR, '.video-outer-wrapper')
-                play_game.click()
+                # play_game.click()
+                # time.sleep(2)
                 # keep scores hidden
                 self.page_down()
                 # wait out ads
                 time.sleep(60)
                 # go full screen and pause
-                action_chain = ActionChains(self.chrome_driver).double_click(play_game).perform()
+                ActionChains(self.chrome_driver).double_click(play_game).perform()
                 break
         if found:
             return 'TSN has the game, enjoy!'
